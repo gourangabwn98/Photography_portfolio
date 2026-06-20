@@ -157,7 +157,7 @@ export function ServicesSection() {
                 <div className="mt-auto flex items-end justify-between">
                   <div>
                     <p className="text-warm-gray text-xs font-sans uppercase tracking-widest">From</p>
-                    <p className="font-display text-2xl text-gold-400 font-light">${svc.startingAt}</p>
+                    <p className="font-display text-2xl text-gold-400 font-light">₹{svc.startingAt}</p>
                   </div>
                   <Link
                     href="/services"

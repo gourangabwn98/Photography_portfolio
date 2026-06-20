@@ -167,7 +167,7 @@ export default function BookingPage() {
                         <span className="font-display text-xl dark:text-white text-obsidian">{pkg.name}</span>
                         {data.package === pkg.id && <Check size={14} className="text-gold-400" />}
                       </div>
-                      <p className="font-display text-2xl text-gold-400 mb-3">${pkg.price}</p>
+                      <p className="font-display text-2xl text-gold-400 mb-3">₹ {pkg.price}</p>
                       <p className="text-warm-gray text-xs font-sans">{pkg.description}</p>
                       <div className="mt-4 pt-4 border-t dark:border-white/6 border-obsidian/6 flex gap-4 text-xs text-warm-gray font-sans">
                         <span>{pkg.hours}h</span>

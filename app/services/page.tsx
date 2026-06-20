@@ -93,9 +93,9 @@ export default function ServicesPage() {
                   {/* Price */}
                   <div className="mb-8 pb-8 border-b dark:border-white/8 border-obsidian/8">
                     <div className="flex items-end gap-1">
-                      <span className="font-display text-5xl text-gold-400 font-light">${pkg.price}</span>
+                      <span className="font-display text-5xl text-gold-400 font-light">₹{pkg.price}</span>
                     </div>
-                    <p className="text-warm-gray text-xs mt-1 font-sans">starting price · USD</p>
+                    <p className="text-warm-gray text-xs mt-1 font-sans">starting price · RS</p>
                   </div>
 
                   {/* Key specs */}
