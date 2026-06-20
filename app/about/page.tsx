@@ -39,7 +39,7 @@ export default function AboutPage() {
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1920&q=90"
-          alt="Elara Voss photographing"
+          alt="RK photography photographing"
           fill className="object-cover" priority sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&q=85"
-                    alt="Elara Voss portrait"
+                    alt="RK photography portrait"
                     fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>

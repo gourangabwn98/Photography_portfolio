@@ -1,19 +1,19 @@
 // ─────────────────────────────────────────────────────────────
-// Central content/data source for the Elara Voss Studio site.
+// Central content/data source for the RK photography site.
 // Everything components render comes from here, so the site's
 // copy can be edited in one place.
 // ─────────────────────────────────────────────────────────────
 
 export const photographer = {
-  name: "Elara Voss",
-  studio: "Elara Voss Studio",
+  name: "RK photography",
+  studio: "RK photography",
   tagline: "Light, held still.",
   subTagline: "Editorial-grade wedding, portrait, and commercial photography.",
   email: "hello@elaravoss.com",
-  phone: "+13105550142",
-  whatsapp: "13105550142",
-  instagram: "@elaravoss",
-  location: "Los Angeles, California",
+  phone: "+917797233633",
+  whatsapp: "+917797233633",
+  instagram: "@rkphotography",
+  location: "sector V, Kolkata",
   bio: "I make photographs for people who notice the difference between a smile and a real one.",
   story:
     "I started shooting on a borrowed Leica in Marrakech and never really stopped. Twelve years later, the camera has changed four times but the question hasn't: what does this person look like when they forget they're being looked at? That's the frame I wait for. Everything else — the gear, the light, the location — is just how I get there.",

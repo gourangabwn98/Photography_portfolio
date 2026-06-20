@@ -1,4 +1,4 @@
-# Elara Voss Studio
+# RK photography
 
 A luxury photography studio site built with Next.js 14 (App Router), Tailwind CSS, and Framer Motion.
 

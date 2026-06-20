@@ -82,7 +82,7 @@ export default function BlogPostPage({ params }: Params) {
 
             <div className="flex items-center justify-between flex-wrap gap-6">
               <p className="text-warm-gray text-sm font-sans">
-                Written by <span className="dark:text-white text-obsidian">Elara Voss</span>
+                Written by <span className="dark:text-white text-obsidian">RK photography</span>
               </p>
               <Link href="/contact" className="btn-ghost-dark">
                 Discuss a session <ArrowRight size={13} />

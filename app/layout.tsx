@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "portrait photographer",
     "Los Angeles photographer",
     "luxury photography",
-    "Elara Voss",
+    "RK photography",
   ],
   authors: [{ name: photographer.name }],
   creator: photographer.name,

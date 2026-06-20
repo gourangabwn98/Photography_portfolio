@@ -9,7 +9,7 @@ import {
 } from "@/components/sections/HomeSections";
 
 export const metadata: Metadata = {
-  title: "Elara Voss Studio | Award-Winning Photography",
+  title: "RK photography | Award-Winning Photography",
 };
 
 export default function HomePage() {
