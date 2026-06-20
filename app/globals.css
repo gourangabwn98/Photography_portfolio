@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────── Base ───────────────────────── */
+
+:root {
+  --gold: 201 162 86; /* matches tailwind gold-400 #c9a256 */
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  @apply font-sans antialiased;
+  @apply bg-ivory text-obsidian dark:bg-obsidian dark:text-ivory;
+  position: relative;
+}
+
+/* subtle film-grain texture, applied via body className="noise" */
+body.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+::selection {
+  background-color: rgb(var(--gold) / 0.35);
+}
+
+:focus-visible {
+  outline: 1px solid rgb(var(--gold));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ───────────────────────── Layout ───────────────────────── */
+
+@layer components {
+  .container-luxury {
+    @apply mx-auto w-full;
+    max-width: 1440px;
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+  }
+
+  .section-pad {
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  }
+
+  /* ── Display type scale (Cormorant Garamond, light, tight) ── */
+  .text-display-hero {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    font-size: clamp(3rem, 8vw, 6.75rem);
+  }
+  .text-display-lg {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+  .text-display-md {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    line-height: 1.05;
+    font-size: clamp(2rem, 4.2vw, 3.1rem);
+  }
+
+  /* ── Overline labels ── */
+  .label-overline {
+    @apply font-mono text-gold-400;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  /* ── Dividers / accent lines ── */
+  .divider-gold {
+    height: 1px;
+    width: 56px;
+    background: linear-gradient(90deg, rgb(var(--gold)), transparent);
+  }
+  .gold-line {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background-color: rgb(var(--gold));
+  }
+
+  /* ── Navbar glass ── */
+  .glass-dark {
+    background-color: rgba(10, 10, 9, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* ── Nav links ── */
+  .nav-link {
+    @apply font-sans text-xs uppercase tracking-widest text-white/60 transition-colors duration-300;
+    position: relative;
+  }
+  .nav-link:hover {
+    @apply text-white;
+  }
+  .nav-link.active {
+    @apply text-gold-400;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-gold-400 px-7 py-3.5 font-sans text-xs font-medium uppercase tracking-widest text-obsidian transition-all duration-300;
+  }
+  .btn-primary:hover {
+    @apply bg-ivory;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-white/30 px-7 py-3.5 font-sans text-xs font-medium uppercase tracking-widest text-white transition-all duration-300;
+  }
+  .btn-ghost:hover {
+    @apply border-gold-400 text-gold-400;
+  }
+
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 border px-7 py-3.5 font-sans text-xs font-medium uppercase tracking-widest transition-all duration-300;
+    border-color: rgb(10 10 9 / 0.2);
+    color: rgb(10 10 9 / 0.85);
+  }
+  .dark .btn-ghost-dark {
+    border-color: rgb(255 255 255 / 0.2);
+    color: rgb(255 255 255 / 0.85);
+  }
+  .btn-ghost-dark:hover {
+    @apply border-gold-400 text-gold-400;
+  }
+
+  /* ── Cards ── */
+  .card-hover {
+    transition: transform 0.4s ease, border-color 0.4s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+
+  .pricing-featured {
+    box-shadow: 0 0 0 1px rgb(var(--gold) / 0.35), 0 30px 60px -20px rgb(var(--gold) / 0.25);
+  }
+
+  /* ── Stat numbers ── */
+  .stat-number {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: 2.25rem;
+    color: rgb(var(--gold));
+    line-height: 1;
+  }
+
+  /* ── Masonry grid (CSS columns) ── */
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .masonry-grid { column-count: 2; }
+  }
+  @media (min-width: 1024px) {
+    .masonry-grid { column-count: 3; }
+  }
+  @media (min-width: 1536px) {
+    .masonry-grid { column-count: 4; }
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* ── Lightbox ── */
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(8, 8, 7, 0.97);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+
+  /* ── Inputs ── */
+  .input-luxury {
+    @apply w-full bg-transparent font-sans text-sm outline-none transition-colors duration-300;
+    border-bottom: 1px solid rgb(10 10 9 / 0.2);
+    padding: 0.65rem 0.1rem;
+    color: inherit;
+  }
+  .dark .input-luxury {
+    border-bottom-color: rgb(255 255 255 / 0.2);
+  }
+  .input-luxury::placeholder {
+    color: rgb(154 148 138 / 0.7);
+  }
+  .input-luxury:focus {
+    border-bottom-color: rgb(var(--gold));
+  }
+
+  /* ── About timeline ── */
+  .timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    bottom: 0.3rem;
+    width: 1px;
+    background: linear-gradient(180deg, rgb(var(--gold) / 0.7), rgb(var(--gold) / 0));
+  }
+
+  /* ── Testimonial quote glyph ── */
+  .quote-mark {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 6rem;
+    line-height: 1;
+    color: rgb(var(--gold) / 0.18);
+  }
+
+  /* ── FAQ accordion ── */
+  .faq-item {
+    border-bottom: 1px solid rgb(10 10 9 / 0.08);
+  }
+  .dark .faq-item {
+    border-bottom-color: rgb(255 255 255 / 0.08);
+  }
+  .faq-trigger {
+    @apply flex w-full items-center justify-between py-6 text-left font-display text-lg font-light;
+  }
+
+  /* ── WhatsApp floating button ── */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 50;
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    background-color: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px -8px rgb(0 0 0 / 0.5);
+  }
+
+  /* ── Blog image wrap ── */
+  .blog-img-wrap {
+    background-color: rgb(10 10 9 / 0.04);
+  }
+}
+
+/* ───────────────────────── Animations ───────────────────────── */
+
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+.ken-burns {
+  animation: kenburns 8s ease-out forwards;
+}
